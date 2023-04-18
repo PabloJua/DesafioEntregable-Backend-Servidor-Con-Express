@@ -11,17 +11,6 @@ class ProductManager {
         this.path = './listadoDeProductos.JSON';
     }
 
-    async load() {
-        try {
-            const data = await fs.promises.readFile(this.path, 'utf-8');
-            this.products = JSON.parse(data);
-            console.log('Data loaded successfully');
-        } catch (error) {
-            console.log(error);
-            throw new Error('Error loading data');
-        }
-    }
-
     addProduct(title, description, price, thumbnail, code, stock) {
         // Validar que todos los campos sean obligatorios 
         if (!title || !description || !price || !thumbnail || !code || !stock) {
